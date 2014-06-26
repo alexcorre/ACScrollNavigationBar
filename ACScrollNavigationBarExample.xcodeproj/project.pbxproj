@@ -57,8 +57,8 @@
 		BD8A5707195CDF32007C2F2D = {
 			isa = PBXGroup;
 			children = (
-				BD8A5712195CDF32007C2F2D /* ACScrollNavigationBar */,
-				BD8A5725195CDF32007C2F2D /* ACScrollNavigationBarTests */,
+				BD8A5712195CDF32007C2F2D /* ACScrollNavigationBarExample */,
+				BD8A5725195CDF32007C2F2D /* ACScrollNavigationBarExampleTests */,
 				BD8A5711195CDF32007C2F2D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,7 +72,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BD8A5712195CDF32007C2F2D /* ACScrollNavigationBar */ = {
+		BD8A5712195CDF32007C2F2D /* ACScrollNavigationBarExample */ = {
 			isa = PBXGroup;
 			children = (
 				BD8A5732195CE037007C2F2D /* source */,
@@ -81,6 +81,7 @@
 				BD8A571C195CDF32007C2F2D /* Images.xcassets */,
 				BD8A5713195CDF32007C2F2D /* Supporting Files */,
 			);
+			name = ACScrollNavigationBarExample;
 			path = ACScrollNavigationBar;
 			sourceTree = "<group>";
 		};
@@ -92,12 +93,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		BD8A5725195CDF32007C2F2D /* ACScrollNavigationBarTests */ = {
+		BD8A5725195CDF32007C2F2D /* ACScrollNavigationBarExampleTests */ = {
 			isa = PBXGroup;
 			children = (
 				BD8A5728195CDF32007C2F2D /* ACScrollNavigationBarTests.swift */,
 				BD8A5726195CDF32007C2F2D /* Supporting Files */,
 			);
+			name = ACScrollNavigationBarExampleTests;
 			path = ACScrollNavigationBarTests;
 			sourceTree = "<group>";
 		};
