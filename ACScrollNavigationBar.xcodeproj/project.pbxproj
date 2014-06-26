@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		BD8A5716195CDF32007C2F2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8A5715195CDF32007C2F2D /* AppDelegate.swift */; };
-		BD8A5718195CDF32007C2F2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8A5717195CDF32007C2F2D /* ViewController.swift */; };
 		BD8A571B195CDF32007C2F2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD8A5719195CDF32007C2F2D /* Main.storyboard */; };
 		BD8A571D195CDF32007C2F2D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD8A571C195CDF32007C2F2D /* Images.xcassets */; };
 		BD8A5729195CDF32007C2F2D /* ACScrollNavigationBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8A5728195CDF32007C2F2D /* ACScrollNavigationBarTests.swift */; };
+		BD8A5734195CE037007C2F2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8A5733195CE037007C2F2D /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,12 +28,12 @@
 		BD8A5710195CDF32007C2F2D /* ACScrollNavigationBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACScrollNavigationBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD8A5714195CDF32007C2F2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD8A5715195CDF32007C2F2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BD8A5717195CDF32007C2F2D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BD8A571A195CDF32007C2F2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD8A571C195CDF32007C2F2D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BD8A5722195CDF32007C2F2D /* ACScrollNavigationBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ACScrollNavigationBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD8A5727195CDF32007C2F2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD8A5728195CDF32007C2F2D /* ACScrollNavigationBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACScrollNavigationBarTests.swift; sourceTree = "<group>"; };
+		BD8A5733195CE037007C2F2D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +75,8 @@
 		BD8A5712195CDF32007C2F2D /* ACScrollNavigationBar */ = {
 			isa = PBXGroup;
 			children = (
+				BD8A5732195CE037007C2F2D /* source */,
 				BD8A5715195CDF32007C2F2D /* AppDelegate.swift */,
-				BD8A5717195CDF32007C2F2D /* ViewController.swift */,
 				BD8A5719195CDF32007C2F2D /* Main.storyboard */,
 				BD8A571C195CDF32007C2F2D /* Images.xcassets */,
 				BD8A5713195CDF32007C2F2D /* Supporting Files */,
@@ -107,6 +107,14 @@
 				BD8A5727195CDF32007C2F2D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BD8A5732195CE037007C2F2D /* source */ = {
+			isa = PBXGroup;
+			children = (
+				BD8A5733195CE037007C2F2D /* ViewController.swift */,
+			);
+			path = source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,7 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD8A5718195CDF32007C2F2D /* ViewController.swift in Sources */,
+				BD8A5734195CE037007C2F2D /* ViewController.swift in Sources */,
 				BD8A5716195CDF32007C2F2D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
