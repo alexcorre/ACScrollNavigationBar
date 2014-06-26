@@ -25,12 +25,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BD8A5710195CDF32007C2F2D /* ACScrollNavigationBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACScrollNavigationBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD8A5710195CDF32007C2F2D /* ACScrollNavigationBarExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACScrollNavigationBarExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD8A5714195CDF32007C2F2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD8A5715195CDF32007C2F2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD8A571A195CDF32007C2F2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD8A571C195CDF32007C2F2D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		BD8A5722195CDF32007C2F2D /* ACScrollNavigationBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ACScrollNavigationBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD8A5722195CDF32007C2F2D /* ACScrollNavigationBarExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ACScrollNavigationBarExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD8A5727195CDF32007C2F2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD8A5728195CDF32007C2F2D /* ACScrollNavigationBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACScrollNavigationBarTests.swift; sourceTree = "<group>"; };
 		BD8A5733195CE037007C2F2D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,8 +66,8 @@
 		BD8A5711195CDF32007C2F2D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BD8A5710195CDF32007C2F2D /* ACScrollNavigationBar.app */,
-				BD8A5722195CDF32007C2F2D /* ACScrollNavigationBarTests.xctest */,
+				BD8A5710195CDF32007C2F2D /* ACScrollNavigationBarExample.app */,
+				BD8A5722195CDF32007C2F2D /* ACScrollNavigationBarExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,9 +120,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BD8A570F195CDF32007C2F2D /* ACScrollNavigationBar */ = {
+		BD8A570F195CDF32007C2F2D /* ACScrollNavigationBarExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD8A572C195CDF32007C2F2D /* Build configuration list for PBXNativeTarget "ACScrollNavigationBar" */;
+			buildConfigurationList = BD8A572C195CDF32007C2F2D /* Build configuration list for PBXNativeTarget "ACScrollNavigationBarExample" */;
 			buildPhases = (
 				BD8A570C195CDF32007C2F2D /* Sources */,
 				BD8A570D195CDF32007C2F2D /* Frameworks */,
@@ -132,14 +132,14 @@
 			);
 			dependencies = (
 			);
-			name = ACScrollNavigationBar;
+			name = ACScrollNavigationBarExample;
 			productName = ACScrollNavigationBar;
-			productReference = BD8A5710195CDF32007C2F2D /* ACScrollNavigationBar.app */;
+			productReference = BD8A5710195CDF32007C2F2D /* ACScrollNavigationBarExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BD8A5721195CDF32007C2F2D /* ACScrollNavigationBarTests */ = {
+		BD8A5721195CDF32007C2F2D /* ACScrollNavigationBarExampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD8A572F195CDF32007C2F2D /* Build configuration list for PBXNativeTarget "ACScrollNavigationBarTests" */;
+			buildConfigurationList = BD8A572F195CDF32007C2F2D /* Build configuration list for PBXNativeTarget "ACScrollNavigationBarExampleTests" */;
 			buildPhases = (
 				BD8A571E195CDF32007C2F2D /* Sources */,
 				BD8A571F195CDF32007C2F2D /* Frameworks */,
@@ -150,9 +150,9 @@
 			dependencies = (
 				BD8A5724195CDF32007C2F2D /* PBXTargetDependency */,
 			);
-			name = ACScrollNavigationBarTests;
+			name = ACScrollNavigationBarExampleTests;
 			productName = ACScrollNavigationBarTests;
-			productReference = BD8A5722195CDF32007C2F2D /* ACScrollNavigationBarTests.xctest */;
+			productReference = BD8A5722195CDF32007C2F2D /* ACScrollNavigationBarExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -173,7 +173,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BD8A570B195CDF32007C2F2D /* Build configuration list for PBXProject "ACScrollNavigationBar" */;
+			buildConfigurationList = BD8A570B195CDF32007C2F2D /* Build configuration list for PBXProject "ACScrollNavigationBarExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -186,8 +186,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BD8A570F195CDF32007C2F2D /* ACScrollNavigationBar */,
-				BD8A5721195CDF32007C2F2D /* ACScrollNavigationBarTests */,
+				BD8A570F195CDF32007C2F2D /* ACScrollNavigationBarExample */,
+				BD8A5721195CDF32007C2F2D /* ACScrollNavigationBarExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -234,7 +234,7 @@
 /* Begin PBXTargetDependency section */
 		BD8A5724195CDF32007C2F2D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BD8A570F195CDF32007C2F2D /* ACScrollNavigationBar */;
+			target = BD8A570F195CDF32007C2F2D /* ACScrollNavigationBarExample */;
 			targetProxy = BD8A5723195CDF32007C2F2D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -335,7 +335,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = ACScrollNavigationBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ACScrollNavigationBarExample;
 			};
 			name = Debug;
 		};
@@ -346,7 +346,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = ACScrollNavigationBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ACScrollNavigationBarExample;
 			};
 			name = Release;
 		};
@@ -365,7 +365,7 @@
 				INFOPLIST_FILE = ACScrollNavigationBarTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ACScrollNavigationBarExampleTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -381,7 +381,7 @@
 				INFOPLIST_FILE = ACScrollNavigationBarTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ACScrollNavigationBarExampleTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
@@ -389,7 +389,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BD8A570B195CDF32007C2F2D /* Build configuration list for PBXProject "ACScrollNavigationBar" */ = {
+		BD8A570B195CDF32007C2F2D /* Build configuration list for PBXProject "ACScrollNavigationBarExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD8A572A195CDF32007C2F2D /* Debug */,
@@ -398,7 +398,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD8A572C195CDF32007C2F2D /* Build configuration list for PBXNativeTarget "ACScrollNavigationBar" */ = {
+		BD8A572C195CDF32007C2F2D /* Build configuration list for PBXNativeTarget "ACScrollNavigationBarExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD8A572D195CDF32007C2F2D /* Debug */,
@@ -406,7 +406,7 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		BD8A572F195CDF32007C2F2D /* Build configuration list for PBXNativeTarget "ACScrollNavigationBarTests" */ = {
+		BD8A572F195CDF32007C2F2D /* Build configuration list for PBXNativeTarget "ACScrollNavigationBarExampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD8A5730195CDF32007C2F2D /* Debug */,

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BD8A570F195CDF32007C2F2D"
-               BuildableName = "ACScrollNavigationBar.app"
-               BlueprintName = "ACScrollNavigationBar"
-               ReferencedContainer = "container:ACScrollNavigationBar.xcodeproj">
+               BuildableName = "ACScrollNavigationBarExample.app"
+               BlueprintName = "ACScrollNavigationBarExample"
+               ReferencedContainer = "container:ACScrollNavigationBarExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BD8A5721195CDF32007C2F2D"
-               BuildableName = "ACScrollNavigationBarTests.xctest"
-               BlueprintName = "ACScrollNavigationBarTests"
-               ReferencedContainer = "container:ACScrollNavigationBar.xcodeproj">
+               BuildableName = "ACScrollNavigationBarExampleTests.xctest"
+               BlueprintName = "ACScrollNavigationBarExampleTests"
+               ReferencedContainer = "container:ACScrollNavigationBarExample.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BD8A570F195CDF32007C2F2D"
-            BuildableName = "ACScrollNavigationBar.app"
-            BlueprintName = "ACScrollNavigationBar"
-            ReferencedContainer = "container:ACScrollNavigationBar.xcodeproj">
+            BuildableName = "ACScrollNavigationBarExample.app"
+            BlueprintName = "ACScrollNavigationBarExample"
+            ReferencedContainer = "container:ACScrollNavigationBarExample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BD8A570F195CDF32007C2F2D"
-            BuildableName = "ACScrollNavigationBar.app"
-            BlueprintName = "ACScrollNavigationBar"
-            ReferencedContainer = "container:ACScrollNavigationBar.xcodeproj">
+            BuildableName = "ACScrollNavigationBarExample.app"
+            BlueprintName = "ACScrollNavigationBarExample"
+            ReferencedContainer = "container:ACScrollNavigationBarExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BD8A570F195CDF32007C2F2D"
-            BuildableName = "ACScrollNavigationBar.app"
-            BlueprintName = "ACScrollNavigationBar"
-            ReferencedContainer = "container:ACScrollNavigationBar.xcodeproj">
+            BuildableName = "ACScrollNavigationBarExample.app"
+            BlueprintName = "ACScrollNavigationBarExample"
+            ReferencedContainer = "container:ACScrollNavigationBarExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
