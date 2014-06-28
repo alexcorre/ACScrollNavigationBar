@@ -32,7 +32,7 @@ extension UIColor {
 
 class SampleTableViewController: UITableViewController {
   
-  // #pragma mark - View LifeCycle
+  // MARK: View LifeCycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -56,7 +56,7 @@ class SampleTableViewController: UITableViewController {
     }
   }
 
-  // #pragma mark - Table view data source
+  // MARK: UITableViewDataSource
 
   override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
     return 1

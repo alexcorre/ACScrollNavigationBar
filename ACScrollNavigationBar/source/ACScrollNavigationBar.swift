@@ -46,10 +46,28 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
     self.setup()
   }
   
+  deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationDidChangeStatusBarOrientationNotification, object: nil)
+    NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationDidBecomeActiveNotification, object: nil)
+  }
+  
   func setup() {
     panGesture = UIPanGestureRecognizer(target: self, action: "handlePan:")
     panGesture.delegate = self
-    // TODO add notifications to rotation state recognizers?
+    
+    // Listen to some notifications
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "statusBarOrientationDidChange", name: UIApplicationDidChangeStatusBarOrientationNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidBecomeActive", name: UIApplicationDidBecomeActiveNotification, object: nil)
+  }
+  
+  // MARK: Notifications
+  
+  func statusBarOrientationDidChange() {
+    resetToDefaultPosition(false)
+  }
+  
+  func applicationDidBecomeActive() {
+    resetToDefaultPosition(false)
   }
   
   // MARK: UIGestureRecognizerDelegate
@@ -61,7 +79,6 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
   // MARK: Gesture Handler
   
   func handlePan(gesture:UIPanGestureRecognizer) {
-    // dont do anything if we dont have a scrollView
     if let myScrollView = self.scrollView {
       
       // return if the gesture is not attached to myScrollView
@@ -100,7 +117,6 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
       var statusBarHeight = self.statusBarHeight()
       var maxY = statusBarHeight
       var minY = maxY - CGRectGetHeight(newFrame) + 1.0
-      // NOTE: plus 1px to prevent the navigation bar disappears in iOS < 7
       
       var isScrollingAndGestureEnded =
         (gesture.state == UIGestureRecognizerState.Ended || gesture.state == UIGestureRecognizerState.Cancelled) &&
@@ -149,15 +165,14 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
   }
   
   func setFrame(newFrame:CGRect, _ alpha:CGFloat, _ animated:Bool) {
-    // TODO make this work with/without animation...using closure?
     
-    func animateNewFrame()  {
+    func moveFrame()  {
       var offsetY = CGRectGetMinY(newFrame) - CGRectGetMinY(self.frame)
       
       // set all subviews alphas to desired alpha...except background view which is (always?) first subview
       for subview in self.subviews as UIView[] {
         // NOTE === "triple equals" determines if the two object are the same instance
-        var isBackgroundView = subview === self.subviews[0]
+        var isBackgroundView = (subview === self.subviews[0])
         var isViewHidden = subview.hidden || subview.alpha == 0.0
         
         if !(isBackgroundView || isViewHidden) {
@@ -175,12 +190,14 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
         parentViewFrame.size.height -= offsetY
         myScrollView.superview.frame = parentViewFrame
       }
+      
     }
     
+    // Animate the moveFrame() changes if desired, otherwise just execute them
     if animated {
-      UIView.animateWithDuration(0.2, animations: animateNewFrame)
+      UIView.animateWithDuration(0.2, animations: moveFrame)
     } else {
-      animateNewFrame()
+      moveFrame()
     }
 
   }
@@ -202,23 +219,3 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
 
 }
 
-/*! Extend UINavigationController to have a scrollNavigationBar property.
- *
- * TODO I dont think this is the best way to do this for the following reason...will discuss to see
- * best way to do this
- *
- * From Apple: “If you define an extension to add new functionality to an existing type, 
- * the new functionality will be available on all existing instances of that type, even if 
- * they were created before the extension was defined.”
- *
- * Excerpt From: Apple Inc. “The Swift Programming Language.” iBooks. 
- * https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewBook?id=881256329
- */
-//extension UINavigationController {
-//  
-//  var scrollNavigationBar: ACScrollNavigationBar? {
-//    get {
-//      return self.navigationBar as? ACScrollNavigationBar
-//    }
-//  }
-//}
