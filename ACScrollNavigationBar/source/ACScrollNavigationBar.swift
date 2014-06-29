@@ -60,7 +60,7 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidBecomeActive", name: UIApplicationDidBecomeActiveNotification, object: nil)
   }
   
-  // MARK: Notifications
+  // MARK: Notification Handlers
   
   func statusBarOrientationDidChange() {
     resetToDefaultPosition(false)

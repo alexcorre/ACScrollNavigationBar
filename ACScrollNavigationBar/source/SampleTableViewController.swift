@@ -8,6 +8,9 @@
 
 import UIKit
 
+// Due to a swift compiler bug...extenstions with computed properties must be decalred
+// in the same file that they are used.
+// TODO move this into its own file
 extension UINavigationController {
   
   var scrollNavigationBar: ACScrollNavigationBar? {
@@ -17,19 +20,6 @@ extension UINavigationController {
   }
 }
 
-extension UIColor {
-  
-  class func colorFromHex(hexValue: UInt) -> UIColor {
-    return UIColor(
-      red: CGFloat((hexValue & 0xFF0000) >> 16) / 255.0,
-      green: CGFloat((hexValue & 0x00FF00) >> 8) / 255.0,
-      blue: CGFloat(hexValue & 0x0000FF) / 255.0,
-      alpha: CGFloat(1.0)
-    )
-  }
-
-}
-
 class SampleTableViewController: UITableViewController {
   
   // MARK: View LifeCycle
@@ -37,12 +27,13 @@ class SampleTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-    setupNavigationBar()
+    setupNavigationBar()    
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
+    // attach the tableView to the scrollNavigationBar
     if let scrollNavBar = self.navigationController.scrollNavigationBar {
       scrollNavBar.scrollView = self.tableView
     }
@@ -51,6 +42,7 @@ class SampleTableViewController: UITableViewController {
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
     
+    // detatch the tableView from the scrollNavigationBar
     if let scrollNavBar = self.navigationController.scrollNavigationBar {
       scrollNavBar.scrollView = nil
     }
@@ -68,7 +60,6 @@ class SampleTableViewController: UITableViewController {
 
   
   override func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell? {
-    // is this ok to unwrap like this?
     let cell = tableView!.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
     var row = indexPath?.row
     cell.text = String(row!)

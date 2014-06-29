@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD64A776195F655300CDC35F /* UIColorRGBExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD64A774195F655300CDC35F /* UIColorRGBExtension.swift */; };
+		BD64A777195F655300CDC35F /* UINavigationControllerScrollExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD64A775195F655300CDC35F /* UINavigationControllerScrollExtension.swift */; };
 		BD8A5716195CDF32007C2F2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8A5715195CDF32007C2F2D /* AppDelegate.swift */; };
 		BD8A571B195CDF32007C2F2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD8A5719195CDF32007C2F2D /* Main.storyboard */; };
 		BD8A571D195CDF32007C2F2D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD8A571C195CDF32007C2F2D /* Images.xcassets */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BD64A774195F655300CDC35F /* UIColorRGBExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorRGBExtension.swift; sourceTree = "<group>"; };
+		BD64A775195F655300CDC35F /* UINavigationControllerScrollExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerScrollExtension.swift; sourceTree = "<group>"; };
 		BD8A5710195CDF32007C2F2D /* ACScrollNavigationBarExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACScrollNavigationBarExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD8A5714195CDF32007C2F2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD8A5715195CDF32007C2F2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +60,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD64A773195F653900CDC35F /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BD64A774195F655300CDC35F /* UIColorRGBExtension.swift */,
+				BD64A775195F655300CDC35F /* UINavigationControllerScrollExtension.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		BD8A5707195CDF32007C2F2D = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +129,7 @@
 		BD8A5732195CE037007C2F2D /* source */ = {
 			isa = PBXGroup;
 			children = (
+				BD64A773195F653900CDC35F /* extensions */,
 				BD8A5735195CE20C007C2F2D /* ACScrollNavigationBar.swift */,
 				BDA26674195DD340001788D9 /* SampleTableViewController.swift */,
 			);
@@ -222,6 +236,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD8A5736195CE20C007C2F2D /* ACScrollNavigationBar.swift in Sources */,
+				BD64A776195F655300CDC35F /* UIColorRGBExtension.swift in Sources */,
+				BD64A777195F655300CDC35F /* UINavigationControllerScrollExtension.swift in Sources */,
 				BD8A5716195CDF32007C2F2D /* AppDelegate.swift in Sources */,
 				BDA26675195DD340001788D9 /* SampleTableViewController.swift in Sources */,
 			);
