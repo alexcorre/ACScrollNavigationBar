@@ -38,5 +38,13 @@ if let scrollNavBar = self.navigationController.scrollNavigationBar {
 
 ```
 
+Also implement `scrollViewDidScrollToTop(scrollView: UIScrollView!)` in your view controller after setting it up as delegate of its scroll view.
+
+```swift
+  func scrollViewDidScrollToTop(scrollView: UIScrollView!) {
+    self.navigationController.scrollNavigationBar?.resetToDefaultPosition(true)
+  }
+```
+
 ##Contact
 [@alexcorre](http://twitter.com/alexcorre)

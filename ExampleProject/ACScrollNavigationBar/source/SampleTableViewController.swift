@@ -81,4 +81,10 @@ class SampleTableViewController: UITableViewController {
     self.navigationController.navigationBar.barStyle = UIBarStyle.BlackTranslucent
   }
   
+  // MARK: UIScrollViewDelegate
+  
+  override func scrollViewDidScrollToTop(scrollView: UIScrollView!) {
+    self.navigationController.scrollNavigationBar?.resetToDefaultPosition(true)
+  }
+  
 }
