@@ -1,10 +1,10 @@
 #ACScrollNavigationBar (swift)
 
-A scrollable UINavigationBar that follows a UIScrollView. This project is a port of [GTScrollNavigationBar](https://github.com/luugiathuy/GTScrollNavigationBar) to swift for iOS 7+.
+A scrollable UINavigationBar that follows a UIScrollView. This project is a port of [GTScrollNavigationBar](https://github.com/luugiathuy/GTScrollNavigationBar) to swift.  **Requires XCode-6 beta and iOS 8 SDK.**
+
+![](https://raw.githubusercontent.com/alexcorre/ACScrollNavigationBar/master/demo.gif)
 
 ##Installation
-###CocoaPods
-Coming soon.
 
 ###Manually
 Add the `ACScrollNavigationBar` folder to your project.
