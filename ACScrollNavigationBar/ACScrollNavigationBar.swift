@@ -8,7 +8,7 @@
 
 import UIKit
 
-let kNearZero = 0.000001
+let kNearZero: CGFloat = 0.000001
 
 enum ACScrollNavigationBarState {
   case None
@@ -19,7 +19,7 @@ enum ACScrollNavigationBarState {
 class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
   
   var scrollState = ACScrollNavigationBarState.None
-  var lastContentOffsetY = 0.0
+  var lastContentOffsetY: CGFloat = 0.0
   var panGesture = UIPanGestureRecognizer()
   
   var scrollView: UIScrollView? {
@@ -36,12 +36,12 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
   
   // MARK: Initializers
   
-  init(frame: CGRect) {
+  override init(frame: CGRect) {
     super.init(frame: frame)
     self.setup()
   }
   
-  init(coder aDecoder: NSCoder!) {
+  required init(coder aDecoder: NSCoder!) {
     super.init(coder: aDecoder)
     self.setup()
   }
@@ -78,7 +78,7 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
   
   // MARK: Gesture Handler
   
-  func handlePan(gesture:UIPanGestureRecognizer) {
+  func handlePan(gesture: UIPanGestureRecognizer) {
     if let myScrollView = self.scrollView {
       
       // return if the gesture is not attached to myScrollView
@@ -113,7 +113,7 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
       }
       
       var newFrame = self.frame
-      var alpha = 1.0
+      var alpha: CGFloat = 1.0
       var statusBarHeight = self.statusBarHeight()
       var maxY = statusBarHeight
       var minY = maxY - CGRectGetHeight(newFrame) + 1.0
@@ -123,7 +123,7 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
         (self.scrollState == ACScrollNavigationBarState.ScrollingUp || self.scrollState == ACScrollNavigationBarState.ScrollingDown)
       
       if isScrollingAndGestureEnded {
-        var contentOffsetYDelta = 0.0
+        var contentOffsetYDelta: CGFloat = 0.0
         if self.scrollState == ACScrollNavigationBarState.ScrollingDown {
           contentOffsetYDelta = maxY - newFrame.origin.y
           newFrame.origin.y = maxY
@@ -164,13 +164,13 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
     setFrame(defaultFrame, 1.0, animated)
   }
   
-  func setFrame(newFrame:CGRect, _ alpha:CGFloat, _ animated:Bool) {
+  func setFrame(newFrame: CGRect, _ alpha: CGFloat, _ animated: Bool) {
     
     func moveFrame()  {
       var offsetY = CGRectGetMinY(newFrame) - CGRectGetMinY(self.frame)
       
       // set all subviews alphas to desired alpha...except background view which is (always?) first subview
-      for subview in self.subviews as UIView[] {
+      for subview in self.subviews as [UIView] {
         // NOTE === "triple equals" determines if the two object are the same instance
         var isBackgroundView = (subview === self.subviews[0])
         var isViewHidden = subview.hidden || subview.alpha == 0.0
@@ -185,10 +185,10 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
       
       // move the scrollviews parent view by the offset...check to make sure we have a scrollView first
       if let myScrollView = self.scrollView {
-        var parentViewFrame = myScrollView.superview.frame
-        parentViewFrame.origin.y += offsetY
-        parentViewFrame.size.height -= offsetY
-        myScrollView.superview.frame = parentViewFrame
+        var parentViewFrame = myScrollView.superview?.frame
+        parentViewFrame?.origin.y += offsetY
+        parentViewFrame?.size.height -= offsetY
+        myScrollView.superview?.frame = parentViewFrame!
       }
       
     }

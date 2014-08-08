@@ -62,7 +62,7 @@ class SampleTableViewController: UITableViewController {
   override func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell? {
     let cell = tableView!.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
     var row = indexPath?.row
-    cell.text = String(row!)
+    cell.textLabel.text = String(row!)
 
     return cell
   }
