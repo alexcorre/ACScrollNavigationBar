@@ -38,6 +38,8 @@
 		BD8A5727195CDF32007C2F2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD8A5728195CDF32007C2F2D /* ACScrollNavigationBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACScrollNavigationBarTests.swift; sourceTree = "<group>"; };
 		BDA26674195DD340001788D9 /* SampleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleTableViewController.swift; sourceTree = "<group>"; };
+		BDD7B7E919C8B7C100657648 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		BDD7B7EA19C8B7CE00657648 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,8 @@
 		BD8A5707195CDF32007C2F2D = {
 			isa = PBXGroup;
 			children = (
+				BDD7B7E919C8B7C100657648 /* README.md */,
+				BDD7B7EA19C8B7CE00657648 /* LICENSE */,
 				BD8A5712195CDF32007C2F2D /* ACScrollNavigationBarExample */,
 				BD8A5725195CDF32007C2F2D /* ACScrollNavigationBarExampleTests */,
 				BD8A5711195CDF32007C2F2D /* Products */,
