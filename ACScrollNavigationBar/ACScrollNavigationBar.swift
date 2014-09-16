@@ -24,7 +24,7 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
   
   var scrollView: UIScrollView? {
     didSet {
-      var defaultFrame = self.frame
+      var defaultFrame = frame
       defaultFrame.origin.y = statusBarHeight()
       setFrame(defaultFrame, 1.0, true)
       
@@ -38,12 +38,12 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-    self.setup()
+    setup()
   }
   
-  required init(coder aDecoder: NSCoder!) {
+  required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-    self.setup()
+    setup()
   }
   
   deinit {
@@ -79,7 +79,7 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
   // MARK: Gesture Handler
   
   func handlePan(gesture: UIPanGestureRecognizer) {
-    if let myScrollView = self.scrollView {
+    if let myScrollView = scrollView {
       
       // return if the gesture is not attached to myScrollView
       if gesture.view !== myScrollView {
@@ -87,7 +87,7 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
       }
       
       // TODO figure out what this does...
-      if myScrollView.frame.size.height + (self.bounds.size.height * 2) >= myScrollView.contentSize.height {
+      if myScrollView.frame.size.height + (bounds.size.height * 2) >= myScrollView.contentSize.height {
         return
       }
       
@@ -99,37 +99,37 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
       }
       
       // if the gesture just started...reset the state and store the last offset
-      if gesture.state == UIGestureRecognizerState.Began {
-        self.scrollState = ACScrollNavigationBarState.None
-        self.lastContentOffsetY = contentOffsetY
+      if gesture.state == .Began {
+        scrollState = .None
+        lastContentOffsetY = contentOffsetY
         return
       }
       
-      var deltaY = contentOffsetY - self.lastContentOffsetY;
+      var deltaY = contentOffsetY - lastContentOffsetY
       if deltaY < 0.0 {
         self.scrollState = ACScrollNavigationBarState.ScrollingDown;
       } else if deltaY > 0.0 {
         self.scrollState = ACScrollNavigationBarState.ScrollingUp;
       }
       
-      var newFrame = self.frame
+      var newFrame = frame
       var alpha: CGFloat = 1.0
       var statusBarHeight = self.statusBarHeight()
       var maxY = statusBarHeight
       var minY = maxY - CGRectGetHeight(newFrame) + 1.0
       
       var isScrollingAndGestureEnded =
-        (gesture.state == UIGestureRecognizerState.Ended || gesture.state == UIGestureRecognizerState.Cancelled) &&
-        (self.scrollState == ACScrollNavigationBarState.ScrollingUp || self.scrollState == ACScrollNavigationBarState.ScrollingDown)
+        (gesture.state == .Ended || gesture.state == .Cancelled) &&
+        (scrollState == .ScrollingUp || scrollState == .ScrollingDown)
       
       if isScrollingAndGestureEnded {
         var contentOffsetYDelta: CGFloat = 0.0
-        if self.scrollState == ACScrollNavigationBarState.ScrollingDown {
+        if scrollState == .ScrollingDown {
           contentOffsetYDelta = maxY - newFrame.origin.y
           newFrame.origin.y = maxY
           alpha = 1.0
         }
-        else if self.scrollState == ACScrollNavigationBarState.ScrollingUp {
+        else if scrollState == .ScrollingUp {
           contentOffsetYDelta = minY - newFrame.origin.y
           newFrame.origin.y = minY
           alpha = kNearZero
@@ -152,7 +152,7 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
         setFrame(newFrame, alpha, false)
       }
       
-      self.lastContentOffsetY = contentOffsetY
+      lastContentOffsetY = contentOffsetY
     }
   }
   

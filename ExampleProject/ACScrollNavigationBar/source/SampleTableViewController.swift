@@ -8,25 +8,13 @@
 
 import UIKit
 
-// Due to a swift compiler bug...extenstions with computed properties must be decalred
-// in the same file that they are used.
-// TODO move this into its own file
-extension UINavigationController {
-  
-  var scrollNavigationBar: ACScrollNavigationBar? {
-    get {
-      return self.navigationBar as? ACScrollNavigationBar
-    }
-  }
-}
-
 class SampleTableViewController: UITableViewController {
   
   // MARK: View LifeCycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     setupNavigationBar()    
   }
   
@@ -34,8 +22,8 @@ class SampleTableViewController: UITableViewController {
     super.viewWillAppear(animated)
     
     // attach the tableView to the scrollNavigationBar
-    if let scrollNavBar = self.navigationController.scrollNavigationBar {
-      scrollNavBar.scrollView = self.tableView
+    if let scrollNavBar = navigationController?.scrollNavigationBar {
+      scrollNavBar.scrollView = tableView
     }
   }
   
@@ -43,7 +31,7 @@ class SampleTableViewController: UITableViewController {
     super.viewWillDisappear(animated)
     
     // detatch the tableView from the scrollNavigationBar
-    if let scrollNavBar = self.navigationController.scrollNavigationBar {
+    if let scrollNavBar = self.navigationController?.scrollNavigationBar {
       scrollNavBar.scrollView = nil
     }
   }
@@ -59,10 +47,10 @@ class SampleTableViewController: UITableViewController {
   }
 
   
-  override func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell? {
-    let cell = tableView!.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
-    var row = indexPath?.row
-    cell.textLabel.text = String(row!)
+  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
+    var row = indexPath.row
+    cell.textLabel?.text = String(row)
 
     return cell
   }
@@ -70,21 +58,21 @@ class SampleTableViewController: UITableViewController {
   // MARK: Navigation Bar Setup
   
   func setupNavigationBar() {
-    self.navigationItem.title = "Demo TableViewController"
+    navigationItem.title = "Demo TableViewController"
     
     // Color + Translucency
     var navColor = UIColor.colorFromHex(0x2576b1)
-    self.navigationController.navigationBar.barTintColor = navColor
-    self.navigationController.navigationBar.translucent = true
+    navigationController?.navigationBar.barTintColor = navColor
+    navigationController?.navigationBar.translucent = true
     
     // BarStyle affects Status Bar color + text color
-    self.navigationController.navigationBar.barStyle = UIBarStyle.BlackTranslucent
+    navigationController?.navigationBar.barStyle = .BlackTranslucent
   }
   
   // MARK: UIScrollViewDelegate
   
-  override func scrollViewDidScrollToTop(scrollView: UIScrollView!) {
-    self.navigationController.scrollNavigationBar?.resetToDefaultPosition(true)
+  override func scrollViewDidScrollToTop(scrollView: UIScrollView) {
+    navigationController?.scrollNavigationBar?.resetToDefaultPosition(true)
   }
   
 }

@@ -8,17 +8,14 @@
 
 import UIKit
 
-/*! UINavigationController class extension to support a computed scrollNavigationBar property
- *
- * NOTE: Due to a bug in swift compiler, class extentions that add computed properties to classes
- * must be declared in the same file they are used in order to avoid compiler crash.
- *
- * TODO: uncomment this and remove the code from SampleTableViewController.swift
- */
-//extension UINavigationController {
-//  var scrollNavigationBar: ACScrollNavigationBar? {
-//  get {
-//    return self.navigationBar as? ACScrollNavigationBar
-//  }
-//  }
-//}
+extension UINavigationController {
+  
+  /// Computed property with getter to access the ACScrollNavigationBar if it exists. If
+  /// navigationBar property is nil or not an instance of ACScrollNavigationBar, this property
+  /// will be nil.
+  var scrollNavigationBar: ACScrollNavigationBar? {
+    get {
+        return navigationBar as? ACScrollNavigationBar
+    }
+  }
+}
