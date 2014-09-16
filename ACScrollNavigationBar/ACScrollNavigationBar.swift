@@ -18,9 +18,11 @@ enum ACScrollNavigationBarState {
 
 class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
   
-  var scrollState = ACScrollNavigationBarState.None
+  var scrollState: ACScrollNavigationBarState = .None
   var lastContentOffsetY: CGFloat = 0.0
+  
   var panGesture = UIPanGestureRecognizer()
+  var gestureIsActive = false
   
   var scrollView: UIScrollView? {
     didSet {
@@ -102,6 +104,7 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
       if gesture.state == .Began {
         scrollState = .None
         lastContentOffsetY = contentOffsetY
+        gestureIsActive = true
         return
       }
       
@@ -118,11 +121,10 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
       var maxY = statusBarHeight
       var minY = maxY - CGRectGetHeight(newFrame) + 1.0
       
-      var isScrollingAndGestureEnded =
-        (gesture.state == .Ended || gesture.state == .Cancelled) &&
-        (scrollState == .ScrollingUp || scrollState == .ScrollingDown)
+      let isScrolling = scrollState == .ScrollingUp || scrollState == .ScrollingDown
+      gestureIsActive = gesture.state != .Ended && gesture.state != .Cancelled
       
-      if isScrollingAndGestureEnded {
+      if isScrolling && !gestureIsActive {
         var contentOffsetYDelta: CGFloat = 0.0
         if scrollState == .ScrollingDown {
           contentOffsetYDelta = maxY - newFrame.origin.y
@@ -159,6 +161,7 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
   // MARK: Helpers
   
   func resetToDefaultPosition(animated:Bool) {
+    scrollState = .None
     var defaultFrame = self.frame
     defaultFrame.origin.y = statusBarHeight()
     setFrame(defaultFrame, 1.0, animated)
@@ -183,14 +186,8 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
       // move the navbar
       self.frame = newFrame
       
-      // move the scrollviews parent view by the offset...check to make sure we have a scrollView first
-      if let myScrollView = self.scrollView {
-        var parentViewFrame = myScrollView.superview?.frame
-        parentViewFrame?.origin.y += offsetY
-        parentViewFrame?.size.height -= offsetY
-        myScrollView.superview?.frame = parentViewFrame!
-      }
-      
+      // adjust scrollview contentInset
+      self.setContentInset()
     }
     
     // Animate the moveFrame() changes if desired, otherwise just execute them
@@ -200,6 +197,27 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
       moveFrame()
     }
 
+  }
+  
+  func setContentInset() {
+    if scrollView == nil {
+      return
+    }
+    
+    // what is this for?
+    if scrollView!.contentInset.top == 0 && scrollView!.contentOffset.y == 0 {
+      return
+    }
+    
+    var insets = scrollView!.contentInset
+    insets.top = frame.origin.y + frame.size.height
+    scrollView!.contentInset = insets
+    
+    let isAtTop = !gestureIsActive && scrollView!.contentOffset.y <= 0
+    if isAtTop && scrollView!.contentOffset.y != scrollView!.contentInset.top {
+      let newContentOffset = CGPointMake(scrollView!.contentOffset.x, -scrollView!.contentInset.top)
+      scrollView!.setContentOffset(newContentOffset, animated: false)
+    }
   }
   
   func statusBarHeight() -> CGFloat {
