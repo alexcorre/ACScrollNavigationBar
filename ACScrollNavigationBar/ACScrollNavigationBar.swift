@@ -225,13 +225,22 @@ class ACScrollNavigationBar: UINavigationBar, UIGestureRecognizerDelegate {
     let orientation = application.statusBarOrientation
     let statusBarFrame = application.statusBarFrame
     
-    switch orientation {
-    case UIInterfaceOrientation.Portrait, UIInterfaceOrientation.PortraitUpsideDown:
-      return statusBarFrame.height
-    case UIInterfaceOrientation.LandscapeLeft, UIInterfaceOrientation.LandscapeRight:
-      return statusBarFrame.width
-    default:
-      return statusBarFrame.height
+    let versions = UIDevice.currentDevice().systemVersion.componentsSeparatedByString(".")
+    if versions[0] == "7" {
+        // ios 7 code
+        switch orientation {
+        case UIInterfaceOrientation.Portrait, UIInterfaceOrientation.PortraitUpsideDown:
+            return statusBarFrame.height
+        case UIInterfaceOrientation.LandscapeLeft, UIInterfaceOrientation.LandscapeRight:
+            return statusBarFrame.width
+        default:
+            return statusBarFrame.height
+        }
+    } else if versions[0] == "8" {
+        // ios 8 code
+        return statusBarFrame.height
+    } else {
+        return 20.0
     }
   }
 
