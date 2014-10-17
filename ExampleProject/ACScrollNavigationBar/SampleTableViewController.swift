@@ -44,6 +44,10 @@ class SampleTableViewController: UITableViewController {
         
         return cell
     }
+
+    override func scrollViewDidScrollToTop(scrollView: UIScrollView) {
+        resetNavBarPosition()
+    }
     
     // MARK: - NavBar Setup
 
@@ -62,39 +66,23 @@ class SampleTableViewController: UITableViewController {
 extension SampleTableViewController: NavigationScrollProvider {
 
     var panGesture: UIPanGestureRecognizer {
-        get {
-            return _panGesture
-        }
-        set {
-            _panGesture = newValue
-        }
+        get { return _panGesture }
+        set { _panGesture = newValue }
     }
 
     var scrollState: String {
-        get {
-            return _scrollState
-        }
-        set {
-            _scrollState = newValue
-        }
+        get { return _scrollState }
+        set { _scrollState = newValue }
     }
 
     var gestureIsActive: Bool {
-        get {
-            return _gestureIsActive
-        }
-        set {
-            _gestureIsActive = newValue
-        }
+        get { return _gestureIsActive }
+        set { _gestureIsActive = newValue }
     }
 
     var lastContentOffsetY: CGFloat {
-        get {
-            return _lastContentOffsetY
-        }
-        set {
-            _lastContentOffsetY = newValue
-        }
+        get { return _lastContentOffsetY }
+        set { _lastContentOffsetY = newValue }
     }
 
     func navigationScrollingView() -> UIScrollView {

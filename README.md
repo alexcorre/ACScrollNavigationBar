@@ -1,50 +1,98 @@
 #ACScrollNavigationBar (swift)
 
-A scrollable UINavigationBar that follows a UIScrollView. This project is a port of [GTScrollNavigationBar](https://github.com/luugiathuy/GTScrollNavigationBar) to swift.  **Requires XCode-6 GM and iOS 8 SDK.**
+> A scrollable UINavigationBar that follows a UIScrollView.
 
 ![](https://raw.githubusercontent.com/alexcorre/ACScrollNavigationBar/master/demo.gif)
 
-##Installation
+## Overview
 
-###Manually
-Add the `ACScrollNavigationBar` folder to your project.
+This project is very much in beta and experimental. It was originally based on [GTScrollNavigationBar](https://github.com/luugiathuy/GTScrollNavigationBar) and shared the same API.
 
-##Usage
+Now, the API and implementation have changed drastically to make it easier to use in swift. Instead of having a subclass of UINavigationBar, we now are able to bring in scrollable nav functionality through two extensions.
+- `UINavigationBar+Scrollable.swift`
+- `UIViewController+ScrollingNavBar.swift`
 
-Setup the NavigationController to use ACScrollNavigationBar
+## Installation
+
+### Manually
+For now, add the `ACScrollNavigationBar` folder to your project. **Coming soon: framework/cocoapods**
+
+## Usage
+
+Setup the your UIViewController to implement the `NavigationScrollProvider` protocol. See example project for details.
 
 ```swift
-var navController = UINavigationController(navigationBarClass: ACScrollNavigationBar.self, toolbarClass: nil)
+extension SampleTableViewController: NavigationScrollProvider {
 
-var vc = SampleTableViewController(style: UITableViewStyle.Plain)
-navController.setViewControllers([vc], animated: false)
-```
+    var panGesture: UIPanGestureRecognizer {
+        get { return _panGesture }
+        set { _panGesture = newValue }
+    }
 
-In your ViewController that has a scrollview (self.tableView in the example), attach the scroll view to the ACScrollNavigationBar on `viewWillAppear(animated: Bool)` and detatch it on `viewWillDisappear(animated: Bool)`
+    var scrollState: String {
+        get { return _scrollState }
+        set { _scrollState = newValue }
+    }
 
-```swift
+    var gestureIsActive: Bool {
+        get { return _gestureIsActive }
+        set { _gestureIsActive = newValue }
+    }
 
-// viewWillAppear()
+    var lastContentOffsetY: CGFloat {
+        get { return _lastContentOffsetY }
+        set { _lastContentOffsetY = newValue }
+    }
 
-if let scrollNavBar = self.navigationController.scrollNavigationBar {
-  scrollNavBar.scrollView = self.tableView
+    func navigationScrollingView() -> UIScrollView {
+        return tableView
+    }
+
 }
 
-// viewWillDissapear()
-
-if let scrollNavBar = self.navigationController.scrollNavigationBar {
-  scrollNavBar.scrollView = nil
-}
-
 ```
 
-Also implement `scrollViewDidScrollToTop(scrollView: UIScrollView!)` in your view controller after setting it up as delegate of its scroll view.
+Note that you'll need to add some private instance properties to your view controller. This is required since the library is based on class extensions and thus cannot add stored properties to a class.
 
 ```swift
-  func scrollViewDidScrollToTop(scrollView: UIScrollView!) {
-    self.navigationController.scrollNavigationBar?.resetToDefaultPosition(true)
+class MyTableViewController: UITableViewController {
+
+    // MARK: - NavigationScrollProvider Stored Properties
+
+    private var _panGesture: UIPanGestureRecognizer!
+    private var _scrollState: String!
+    private var _gestureIsActive = false
+    private var _lastContentOffsetY: CGFloat = 0.0
+
+}
+```
+
+Once your UIViewController is implementing the NavigationScrollProvider protocol, you can simple call `bindNavigationScrolling()` on `viewDidLoad()`. If you are not inside a `UINavigationController` or dont implement the `NavigationScrollProvider` protocol, this call will do nothing.
+
+```swift
+
+class MyTableViewController: UITableViewController {
+
+  func viewDidLoad() {
+    super.viewDidLoad()
+    bindNavigationScrolling()
   }
+
+}
+
 ```
 
-##Contact
-[@alexcorre](http://twitter.com/alexcorre)
+If desired, implement `scrollViewDidScrollToTop(scrollView: UIScrollView!)` in your `UIScrollView's` delegate to reset the navigation bar.
+
+```swift
+func scrollViewDidScrollToTop(scrollView: UIScrollView) {
+  resetNavBarPosition()
+}
+
+```
+
+Thats it...
+
+## Contact
+- for questions please open an issue
+- twitter: [@alexcorre](http://twitter.com/alexcorre)
