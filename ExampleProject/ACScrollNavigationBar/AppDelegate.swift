@@ -16,12 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
     self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
     
-    // Override point for customization after application launch.
-    var navController = UINavigationController(navigationBarClass: ACScrollNavigationBar.self, toolbarClass: nil)
-    var vc = SampleTableViewController(style: UITableViewStyle.Plain)
-    navController.setViewControllers([vc], animated: false)
+    // Override point for customization after application launchh
+    var vc = SampleTableViewController()
+    var navVC = UINavigationController(rootViewController: vc)
     
-    self.window!.rootViewController = navController
+    self.window!.rootViewController = navVC
     self.window!.backgroundColor = UIColor.whiteColor()
     self.window!.makeKeyAndVisible()
     return true
