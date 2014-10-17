@@ -25,9 +25,6 @@ class SampleTableViewController: UITableViewController {
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         setupNavigationBar()
         bindNavigationScrolling()
-        
-        tableView.layer.borderColor = UIColor.redColor().CGColor
-        tableView.layer.borderWidth = 2.0
     }
     
     // MARK: - UITableViewDataSource
@@ -51,7 +48,7 @@ class SampleTableViewController: UITableViewController {
     // MARK: - NavBar Setup
 
     func setupNavigationBar() {
-        navigationItem.title = "Demo TableViewController 2"
+        navigationItem.title = "Demo TableViewController"
         var navColor = UIColor.colorFromHex(0x2576b1)
         navigationController?.navigationBar.barTintColor = navColor
         navigationController?.navigationBar.barStyle = .BlackTranslucent
