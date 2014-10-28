@@ -66,7 +66,6 @@ extension RootViewController {
     override func scrollViewDidScrollToTop(scrollView: UIScrollView) {
         // Ensure that nav bar is reset when we scroll to the top programatically.
         resetNavBarPosition()
-        super.scrollViewDidScrollToTop(scrollView)
     }
 
 }
