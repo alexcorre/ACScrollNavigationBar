@@ -23,6 +23,8 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
+
+        // ACTIVATE Nav bar scrolling
         bindNavigationScrolling()
     }
 
@@ -57,12 +59,14 @@ extension RootViewController {
 
 }
 
-// MARK: - UIScrollViewDelegate
+// MARK: - UIScrollViewDelegate Override
 
 extension RootViewController {
 
     override func scrollViewDidScrollToTop(scrollView: UIScrollView) {
+        // Ensure that nav bar is reset when we scroll to the top programatically.
         resetNavBarPosition()
+        super.scrollViewDidScrollToTop(scrollView)
     }
 
 }

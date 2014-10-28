@@ -8,14 +8,16 @@
 
 This project is very much in beta and experimental. It was originally based on [GTScrollNavigationBar](https://github.com/luugiathuy/GTScrollNavigationBar) and shared the same API.
 
-Now, the API and implementation have changed drastically to make it easier to use in swift. Instead of having a subclass of UINavigationBar, we now are able to bring in scrollable nav functionality through two extensions.
+Now, the API and implementation have changed drastically to make it easier to use in swift. Instead of having a subclass of UINavigationBar, we now are able to bring in scrollable nav functionality through two class extensions.
 - `UINavigationBar+Scrollable.swift`
 - `UIViewController+ScrollingNavBar.swift`
 
 ## Installation
 
 ### Manually
-For now, add the `ACScrollNavigationBar` folder to your project. **Coming soon: framework/cocoapods**
+For now, until CocoaPods gets swift support, add the `ACScrollNavBar` project to your workspace. This project creates a Framework. Add this framework to your apps build phases under "Link Binary With Libraries"
+
+Check out `ACScrollNavBar.xcworkspace` for an example.
 
 ## Usage
 
