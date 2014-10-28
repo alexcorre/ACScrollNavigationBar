@@ -1,15 +1,16 @@
 //
-//  SampleTableViewController.swift
-//  ACScrollNavigationBarExample
+//  ViewController.swift
+//  DemoApp
 //
-//  Created by Alex Corre on 9/17/14.
+//  Created by Alex Corre on 10/17/14.
 //  Copyright (c) 2014 Alex Corre. All rights reserved.
 //
 
 import UIKit
+import ACScrollNavBar
 
-class SampleTableViewController: UITableViewController {
-    
+class RootViewController: UITableViewController {
+
     // MARK: - NavigationScrollProvider Stored Properties
 
     private var _panGesture: UIPanGestureRecognizer!
@@ -17,53 +18,58 @@ class SampleTableViewController: UITableViewController {
     private var _gestureIsActive = false
     private var _lastContentOffsetY: CGFloat = 0.0
 
-
     // MARK: - View LifeCycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        setupNavigationBar()
+        registerCells()
         bindNavigationScrolling()
     }
-    
-    // MARK: - UITableViewDataSource
-    
+
+
+    // MARK: - Setup
+
+    func registerCells() {
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    }
+
+}
+
+// MARK: - UITableViewDataSource
+
+extension RootViewController {
+
     override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
         return 1
     }
-    
+
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
         return 100
     }
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
         var row = indexPath.row
         cell.textLabel?.text = String(row)
-        
+
         return cell
     }
+
+}
+
+// MARK: - UIScrollViewDelegate
+
+extension RootViewController {
 
     override func scrollViewDidScrollToTop(scrollView: UIScrollView) {
         resetNavBarPosition()
     }
-    
-    // MARK: - NavBar Setup
-
-    func setupNavigationBar() {
-        navigationItem.title = "Demo TableViewController"
-        var navColor = UIColor.colorFromHex(0x2576b1)
-        navigationController?.navigationBar.barTintColor = navColor
-        navigationController?.navigationBar.barStyle = .BlackTranslucent
-    }
-
 
 }
 
-// MARK: - NavigationScorllProvider
+// MARK: - NavigationScrollProvider
 
-extension SampleTableViewController: NavigationScrollProvider {
+extension RootViewController: NavigationScrollProvider {
 
     var panGesture: UIPanGestureRecognizer {
         get { return _panGesture }
@@ -90,3 +96,4 @@ extension SampleTableViewController: NavigationScrollProvider {
     }
 
 }
+

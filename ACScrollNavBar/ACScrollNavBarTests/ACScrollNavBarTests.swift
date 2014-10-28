@@ -1,14 +1,15 @@
 //
-//  ACScrollNavigationBarTests.swift
-//  ACScrollNavigationBarTests
+//  ACScrollNavBarTests.swift
+//  ACScrollNavBarTests
 //
-//  Created by Alex Corre on 6/26/14.
+//  Created by Alex Corre on 10/17/14.
 //  Copyright (c) 2014 Alex Corre. All rights reserved.
 //
 
+import UIKit
 import XCTest
 
-class ACScrollNavigationBarTests: XCTestCase {
+class ACScrollNavBarTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
