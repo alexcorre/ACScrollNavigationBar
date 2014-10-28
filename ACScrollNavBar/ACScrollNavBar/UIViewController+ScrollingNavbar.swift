@@ -163,13 +163,11 @@ extension UIViewController: UIGestureRecognizerDelegate {
         var insets = scrollView.contentInset
         insets.top = navigationController!.navigationBar.frame.origin.y + navigationController!.navigationBar.frame.size.height
         scrollView.contentInset = insets
-        println("setting insets.top \(insets.top)")
-        
+
         let isAtTop = !scrollProvider.gestureIsActive && scrollView.contentOffset.y <= 0
         if isAtTop && scrollView.contentOffset.y != scrollView.contentInset.top {
             let newContentOffset = CGPointMake(scrollView.contentOffset.x, -scrollView.contentInset.top)
             scrollView.setContentOffset(newContentOffset, animated: false)
-            println("setting offset \(newContentOffset)")
         }
     }
     
