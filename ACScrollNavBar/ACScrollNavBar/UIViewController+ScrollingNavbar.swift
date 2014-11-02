@@ -26,14 +26,13 @@ public enum NavigationScrollProviderScrollState: String {
 
 extension UIViewController: UIGestureRecognizerDelegate {
     
-    /**
-    If this UIViewController instance implements the NavigationScrollProvider protocol, binds
-    scrolling of the provided navigation scrolling view to the hiding / showing of the navigation
-    bar.
     
-    If this instance does not implement the NavigationScrollProvider protocol, or is not
-    contained in a UINavigationController, this method is a noop.
-    */
+    /// If this UIViewController instance implements the NavigationScrollProvider protocol, binds
+    /// scrolling of the provided navigation scrolling view to the hiding / showing of the navigation
+    /// bar.
+    ///
+    /// If this instance does not implement the NavigationScrollProvider protocol, or is not
+    /// contained in a UINavigationController, this method is a noop.
     public func bindNavigationScrolling() {
         if let scrollProvider = self as? NavigationScrollProvider {
             if navigationController == nil {
@@ -56,10 +55,9 @@ extension UIViewController: UIGestureRecognizerDelegate {
         }
     }
 
-    /**
-    If this UIViewController instance implements the NavigationScrollProvider protocol and is
-    contained within a UINavigationController, will reset the UINavigationBar position.
-    */
+    
+    /// If this UIViewController instance implements the NavigationScrollProvider protocol and is
+    /// contained within a UINavigationController, will reset the UINavigationBar position.
     public func resetNavBarPosition() {
         if navigationController == nil {
             return

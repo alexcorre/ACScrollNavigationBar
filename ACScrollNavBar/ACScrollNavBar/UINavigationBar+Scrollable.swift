@@ -8,26 +8,24 @@
 
 extension UINavigationBar {
 
-    /**
-    Resets this UINavigationBar to its natural position (not collapsed).
-
-    :param: animated Whether or not to animate the change
-    :param: scrollProvider A NavigationScrollProvider to be informed of the change
-    */
+    
+    /// Resets this UINavigationBar to its natural position (not collapsed).
+    ///
+    /// :param: animated Whether or not to animate the change
+    /// :param: scrollProvider A NavigationScrollProvider to be informed of the change
     public func scroll_nav_resetToDefaultPosition(animated: Bool, scrollProvider: NavigationScrollProvider) {
         var defaultFrame = frame
         defaultFrame.origin.y = scroll_nav_statusBarHeight()
         scroll_nav_setFrame(defaultFrame, alpha: 1.0, animated: animated, scrollProvider: scrollProvider)
     }
 
-    /**
-    Adjusts the frame of this UINavigation bar to the given frame, with a content alpha.
-
-    :param: newFrame The frame to give this UINavigationBar
-    :param: alpha The alpha of the content
-    :param: animated Whether we should animate the frame / alpha change
-    :param: scrollProvider The NavigationScrollProvider associated with this change being made. It will be adjusted accordingly.
-    */
+    
+    /// Adjusts the frame of this UINavigation bar to the given frame, with a content alpha.
+    ///
+    /// :param: newFrame The frame to give this UINavigationBar
+    /// :param: alpha The alpha of the content
+    /// :param: animated Whether we should animate the frame / alpha change
+    /// :param: scrollProvider The NavigationScrollProvider associated with this change being made. It will be adjusted accordingly.
     public func scroll_nav_setFrame(newFrame: CGRect, alpha: CGFloat, animated: Bool, scrollProvider: NavigationScrollProvider) {
 
         func moveFrame()  {
@@ -58,10 +56,9 @@ extension UINavigationBar {
         }
     }
 
-    /**
-    Convenience getter for the height of the status bar frame. On iOS 7 takes into account the
-    user interface orientation. On iOS 8 this is not necessary.
-    */
+    
+    /// Convenience getter for the height of the status bar frame. On iOS 7 takes into account the
+    /// user interface orientation. On iOS 8 this is not necessary.
     public func scroll_nav_statusBarHeight() -> CGFloat {
         let application = UIApplication.sharedApplication()
         let orientation = application.statusBarOrientation
