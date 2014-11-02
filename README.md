@@ -15,7 +15,7 @@ Now, the API and implementation have changed drastically to make it easier to us
 ## Installation
 
 ### Manually
-For now, until CocoaPods gets swift support, add the `ACScrollNavBar` project to your workspace. This project creates a Framework. Add this framework to your apps build phases under "Link Binary With Libraries"
+For now, until CocoaPods gets swift support, add the `ACScrollNavBar` project as a subproject of your app. The ACScrollNavBar project creates a Framework. Add this framework to your apps build phases under "Target Dependencies". Also add the ACScrollNavBar framework to your project as in the "Embedded Binaries" section in General settings for the app project. After this you should be able to do an import ACScrollNavBar successfully in your app project.
 
 Check out `ACScrollNavBar.xcworkspace` for an example.
 

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BD09D2971A0007690087AE2F /* ACScrollNavBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD09D2961A0007690087AE2F /* ACScrollNavBar.framework */; };
-		BD09D2B71A000DF40087AE2F /* ACScrollNavBar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD09D2961A0007690087AE2F /* ACScrollNavBar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0E10A4151A06D1A300E3C704 /* ACScrollNavBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E10A4101A06D18300E3C704 /* ACScrollNavBar.framework */; };
+		0E10A4161A06D1A300E3C704 /* ACScrollNavBar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E10A4101A06D18300E3C704 /* ACScrollNavBar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BD9A5B1B19F1D65400C1F777 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A5B1A19F1D65400C1F777 /* AppDelegate.swift */; };
 		BD9A5B1D19F1D65400C1F777 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A5B1C19F1D65400C1F777 /* RootViewController.swift */; };
 		BD9A5B2019F1D65400C1F777 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD9A5B1E19F1D65400C1F777 /* Main.storyboard */; };
@@ -18,6 +18,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0E10A40F1A06D18300E3C704 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E10A40A1A06D18300E3C704 /* ACScrollNavBar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BD9A5AED19F1D41400C1F777;
+			remoteInfo = ACScrollNavBar;
+		};
+		0E10A4111A06D18300E3C704 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E10A40A1A06D18300E3C704 /* ACScrollNavBar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BD9A5AF819F1D41400C1F777;
+			remoteInfo = ACScrollNavBarTests;
+		};
+		0E10A4131A06D19300E3C704 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E10A40A1A06D18300E3C704 /* ACScrollNavBar.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BD9A5AEC19F1D41400C1F777;
+			remoteInfo = ACScrollNavBar;
+		};
+		0E10A4171A06D1A300E3C704 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E10A40A1A06D18300E3C704 /* ACScrollNavBar.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BD9A5AEC19F1D41400C1F777;
+			remoteInfo = ACScrollNavBar;
+		};
 		BD9A5B2B19F1D65400C1F777 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BD9A5B0D19F1D65400C1F777 /* Project object */;
@@ -28,13 +56,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		BD09D2B81A000DF40087AE2F /* Embed Frameworks */ = {
+		0E10A4191A06D1A300E3C704 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BD09D2B71A000DF40087AE2F /* ACScrollNavBar.framework in Embed Frameworks */,
+				0E10A4161A06D1A300E3C704 /* ACScrollNavBar.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -42,7 +70,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		BD09D2961A0007690087AE2F /* ACScrollNavBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ACScrollNavBar.framework; path = "../../../Library/Developer/Xcode/DerivedData/ACScrollNavBar-ekmxsyqvxxcdobggogmelwjoqdbc/Build/Products/Debug-iphoneos/ACScrollNavBar.framework"; sourceTree = "<group>"; };
+		0E10A40A1A06D18300E3C704 /* ACScrollNavBar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ACScrollNavBar.xcodeproj; path = ../ACScrollNavBar/ACScrollNavBar.xcodeproj; sourceTree = "<group>"; };
 		BD9A5B1519F1D65400C1F777 /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9A5B1919F1D65400C1F777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD9A5B1A19F1D65400C1F777 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD09D2971A0007690087AE2F /* ACScrollNavBar.framework in Frameworks */,
+				0E10A4151A06D1A300E3C704 /* ACScrollNavBar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,10 +102,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E10A40B1A06D18300E3C704 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0E10A4101A06D18300E3C704 /* ACScrollNavBar.framework */,
+				0E10A4121A06D18300E3C704 /* ACScrollNavBarTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		BD9A5B0C19F1D65400C1F777 = {
 			isa = PBXGroup;
 			children = (
-				BD09D2961A0007690087AE2F /* ACScrollNavBar.framework */,
+				0E10A40A1A06D18300E3C704 /* ACScrollNavBar.xcodeproj */,
 				BD9A5B1719F1D65400C1F777 /* DemoApp */,
 				BD9A5B2D19F1D65400C1F777 /* DemoAppTests */,
 				BD9A5B1619F1D65400C1F777 /* Products */,
@@ -141,11 +178,13 @@
 				BD9A5B1119F1D65400C1F777 /* Sources */,
 				BD9A5B1219F1D65400C1F777 /* Frameworks */,
 				BD9A5B1319F1D65400C1F777 /* Resources */,
-				BD09D2B81A000DF40087AE2F /* Embed Frameworks */,
+				0E10A4191A06D1A300E3C704 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0E10A4141A06D19300E3C704 /* PBXTargetDependency */,
+				0E10A4181A06D1A300E3C704 /* PBXTargetDependency */,
 			);
 			name = DemoApp;
 			productName = DemoApp;
@@ -199,6 +238,12 @@
 			mainGroup = BD9A5B0C19F1D65400C1F777;
 			productRefGroup = BD9A5B1619F1D65400C1F777 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0E10A40B1A06D18300E3C704 /* Products */;
+					ProjectRef = 0E10A40A1A06D18300E3C704 /* ACScrollNavBar.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				BD9A5B1419F1D65400C1F777 /* DemoApp */,
@@ -206,6 +251,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0E10A4101A06D18300E3C704 /* ACScrollNavBar.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ACScrollNavBar.framework;
+			remoteRef = 0E10A40F1A06D18300E3C704 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0E10A4121A06D18300E3C704 /* ACScrollNavBarTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ACScrollNavBarTests.xctest;
+			remoteRef = 0E10A4111A06D18300E3C704 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BD9A5B1319F1D65400C1F777 /* Resources */ = {
@@ -248,6 +310,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0E10A4141A06D19300E3C704 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ACScrollNavBar;
+			targetProxy = 0E10A4131A06D19300E3C704 /* PBXContainerItemProxy */;
+		};
+		0E10A4181A06D1A300E3C704 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ACScrollNavBar;
+			targetProxy = 0E10A4171A06D1A300E3C704 /* PBXContainerItemProxy */;
+		};
 		BD9A5B2C19F1D65400C1F777 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BD9A5B1419F1D65400C1F777 /* DemoApp */;
@@ -356,9 +428,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ACScrollNavBar-ekmxsyqvxxcdobggogmelwjoqdbc/Build/Products/Debug-iphoneos",
+					"/Users/alexcorre/dev/ACScrollNavigationBar/ACScrollNavBar/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = DemoApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -370,9 +444,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ACScrollNavBar-ekmxsyqvxxcdobggogmelwjoqdbc/Build/Products/Debug-iphoneos",
+					"/Users/alexcorre/dev/ACScrollNavigationBar/ACScrollNavBar/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = DemoApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

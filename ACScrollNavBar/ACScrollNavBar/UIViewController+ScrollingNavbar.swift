@@ -95,7 +95,7 @@ extension UIViewController: UIGestureRecognizerDelegate {
         
         // if the gesture just started...reset the state and store the last offset
         if gesture.state == .Began {
-            scrollProvider.scrollState = NavigationScrollProviderScrollState.None.toRaw()
+            scrollProvider.scrollState = NavigationScrollProviderScrollState.None.rawValue
             scrollProvider.lastContentOffsetY = contentOffsetY
             scrollProvider.gestureIsActive = true
             return
@@ -103,9 +103,9 @@ extension UIViewController: UIGestureRecognizerDelegate {
         
         var deltaY = contentOffsetY - scrollProvider.lastContentOffsetY
         if deltaY < 0.0 {
-            scrollProvider.scrollState = NavigationScrollProviderScrollState.ScrollingDown.toRaw()
+            scrollProvider.scrollState = NavigationScrollProviderScrollState.ScrollingDown.rawValue
         } else if deltaY > 0.0 {
-            scrollProvider.scrollState = NavigationScrollProviderScrollState.ScrollingUp.toRaw()
+            scrollProvider.scrollState = NavigationScrollProviderScrollState.ScrollingUp.rawValue
         }
         
         var newFrame = navigationController!.navigationBar.frame
@@ -114,17 +114,17 @@ extension UIViewController: UIGestureRecognizerDelegate {
         var maxY = statusBarHeight
         var minY = maxY - CGRectGetHeight(newFrame) + 1.0
         
-        let isScrolling = scrollProvider.scrollState == NavigationScrollProviderScrollState.ScrollingUp.toRaw() || scrollProvider.scrollState == NavigationScrollProviderScrollState.ScrollingDown.toRaw()
+        let isScrolling = scrollProvider.scrollState == NavigationScrollProviderScrollState.ScrollingUp.rawValue || scrollProvider.scrollState == NavigationScrollProviderScrollState.ScrollingDown.rawValue
         scrollProvider.gestureIsActive = gesture.state != .Ended && gesture.state != .Cancelled
         
         if isScrolling && !scrollProvider.gestureIsActive {
             var contentOffsetYDelta: CGFloat = 0.0
-            if scrollProvider.scrollState == NavigationScrollProviderScrollState.ScrollingDown.toRaw() {
+            if scrollProvider.scrollState == NavigationScrollProviderScrollState.ScrollingDown.rawValue {
                 contentOffsetYDelta = maxY - newFrame.origin.y
                 newFrame.origin.y = maxY
                 alpha = 1.0
             }
-            else if scrollProvider.scrollState == NavigationScrollProviderScrollState.ScrollingUp.toRaw() {
+            else if scrollProvider.scrollState == NavigationScrollProviderScrollState.ScrollingUp.rawValue {
                 contentOffsetYDelta = minY - newFrame.origin.y
                 newFrame.origin.y = minY
                 alpha = NearZero
@@ -190,12 +190,12 @@ extension UIViewController: UIGestureRecognizerDelegate {
     }
     
     public func statusBarOrientationDidChange() {
-        selfAsScrollProvider().scrollState = NavigationScrollProviderScrollState.None.toRaw()
+        selfAsScrollProvider().scrollState = NavigationScrollProviderScrollState.None.rawValue
         navigationController!.navigationBar.scroll_nav_resetToDefaultPosition(false, scrollProvider: selfAsScrollProvider())
     }
     
     public func applicationDidBecomeActive() {
-        selfAsScrollProvider().scrollState = NavigationScrollProviderScrollState.None.toRaw()
+        selfAsScrollProvider().scrollState = NavigationScrollProviderScrollState.None.rawValue
         navigationController!.navigationBar.scroll_nav_resetToDefaultPosition(false, scrollProvider: selfAsScrollProvider())
     }
     
